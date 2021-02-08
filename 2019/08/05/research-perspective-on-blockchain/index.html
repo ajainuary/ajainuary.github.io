@@ -7,10 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Anurag Jain</title>
+  <title>Paper Review - Research Perspectives for Cryptocurrencies</title>
   <meta name="description" content="Anurag Jain" s website and blog.>
 
-  <link rel="canonical" href="/">
+  <link rel="canonical" href="/2019/08/05/research-perspective-on-blockchain/">
   <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
   <!-- Fonts -->
@@ -127,405 +127,320 @@
 
   <!-- begin content -->
   <main class="content" aria-label="Content">
-    <!-- begin c-hero -->
-<div class="hero">
-  <div class="container">
+    <div class="container">
+  <div class="post-title-box">
     <div class="row">
-      <div class="col col-6 col-t-12 last-item">
-        <div class="hero__content">
-          <h1 class="hero__title">Hello, I'm <strong>Anurag Jain</strong>
-</h1>
-          <p class="hero__subtitle">A CS undergrad and researcher. I blog about <strong>blockchains</strong>,<strong>maths</strong>, <strong>dev</strong> and sometimes about my  <strong>adventures</strong>.</p>
-          <div class="hero__social">
-            <span class="hero__social-title">Follow Me |</span>
-            <div class="contact">
-  <ul class="contact__list list-reset">
-    
-      <li><a href="https://twitter.com/ajainuary"><i class="ion ion-logo-twitter"></i></a></li>
-    
+      <div class="col col-10 push-2 col-11 push-t-1 col-m-12 push-m-0">
+        <span class="post__date">
+          <time datetime="2019-08-05T15:01:35+05:30">Aug 05, 2019</time>
+        </span>
 
-    
-      <li><a href="https://facebook.com/"><i class="ion ion-logo-facebook"></i></a></li>
-    
-  
-     
-  
-    
-      <li><a href="https://instagram.com/"><i class="ion ion-logo-instagram"></i></a></li>
-    
-  
-    
-      <li><a href="https://pinterest.com/"><i class="ion ion-logo-pinterest"></i></a></li>
-    
-  </ul>
-</div>
+        <h1 class="post-title">Paper Review - Research Perspectives for Cryptocurrencies</h1>
+
+        <div class="post__info">
+          <div class="post__author">
+            <span>By</span>
+            <a href="/about/" class="author-name">Anurag Jain</a>
           </div>
-        </div>
-      </div>
-      <div class="col col-6 col-t-12">
-        <div class="hero__image">
-          <img src="/images/profile.jpg" alt="">
+
+          
+          <div class="post__tags">
+            
+              <a href="/tag/paper-review" class="post__tags-tag">paper-review</a>
+            
+              <a href="/tag/blockchain" class="post__tags-tag">blockchain</a>
+            
+              <a href="/tag/research" class="post__tags-tag">research</a>
+            
+          </div>
+          
         </div>
       </div>
     </div>
   </div>
-</div>
-<!-- end hero -->
 
-<div class="container">
-	<div class="row">
-		<div class="col col-12">
-			
-				<h4 class="lates-title">Latest Posts</h4>
-			
-		</div>
-	</div>
-</div>
+  
+  
+    <div class="post__head">
+      <div class="post-image" style="background-image: url(/images/06.jpg)"></div>
+    </div>
+  
 
-<div class="container">
-	<div class="row">
-	
-		
-			
-<!-- begin article -->
-<div class="article">
+  </div>
+
+
   <div class="container">
+  <div class="row">
+    <!-- begin post -->
+    <article class="post  col col-8 col-t-10 col-m-12">
 
-    <div class="article__wrapper">
+      <div class="post__content">
+        <p>The article titled “SoK: Research Perspectives and Challenges for Bitcoin and
+Cryptocurrencies” <a class="citation" href="#SoK">(Bonneau et al., 2015)</a> provides a comprehensive overview of the current state of
+research in blockchain and explores fundamental problems available for research.
+In this post, I present a few takeaways from the paper.</p>
 
-        
-          <a href="/2019/10/17/need-for-speed/" class="article__image" style="background-image: url(/images/13.jpg)">
-          </a>
-        
+<h3 id="design-of-bitcoin">Design of Bitcoin</h3>
 
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/10/17/need-for-speed/">Paper Review - GHOST Protocol</a>
-          </h2>
-      
-          <p class="article__excerpt">Although I’m a big fan of Tom Cruise but this article is not about the movie
-from the Mission Impossible series. In this article, I discuss a paper by (Sompolinsky &amp; Zohar, 2015)...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-10-17T19:30:35+05:30">October 17, 2019</time></span>
-            </div>
+<p>Bitcoin is designed in 3 distinct layers or systems,</p>
 
-            <a href="/2019/10/17/need-for-speed/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
+<h4 id="communication-network">Communication Network</h4>
 
-        </div>
+<p>Bitcoin Protocol runs on a peer to peer network on TCP without any
+hierarchy among the nodes. This network allows propagation of
+Transaction data as well as announcements of newly mined blocks. Some
+nodes may chose to follow a stricter security policy by having stricter
+validation rules from a narrow whitelist of valid transactions.</p>
+
+<h4 id="consensus-mechanism">Consensus Mechanism</h4>
+
+<p>Distributed consensus is said to be achieved when all nodes decide on
+the same value. This value is valid only if it was also proposed by an
+honest node. Under some technical conditions, distributed consensus is
+impossible even with a single faulty node as proved in
+Fischer-Lynch-Patterson Impossibility.</p>
+
+<p>Bitcoin achieves consensus by providing incentive to the nodes to behave
+honestly via mining rewards  <a class="citation" href="#BBP">(Garay et al., 2015)</a>.</p>
+
+<p>Consensus is achieved on the state which only consists of scripts.</p>
+
+<h4 id="scripts-and-transactions">Scripts and Transactions</h4>
+
+<p>The state in Bitcoin is defined by the scripts submitted by nodes, which
+contain the input and output addresses for the transactions. It is an
+ad-hoc, non-Turing complete scripting language with fewer than 200
+commands (called <em>opcodes</em>). Each transaction contains contains:</p>
+
+<ul>
+  <li>
+    <p><em>scriptSig</em>: A small script which would be verified later in order
+to <em>redeem</em> the transaction.</p>
+  </li>
+  <li>
+    <p><em>scriptPubKey</em>: The signature on the script’s hash (SHA-256 applied
+twice), signed by the private key of previous transaction.</p>
+  </li>
+</ul>
+
+<h2 id="new-ideas">New Ideas</h2>
+
+<h3 id="nakomoto-consensus">Nakomoto Consensus</h3>
+
+<p>The mechanism for obtaining consensus on new blocks which offers
+incentives to honest nodes as well as penalizes dishonest nodes. This is
+done by asking any node that wants to get the incentive to solve a
+computational puzzle and propose a valid block. If the node proposes an
+invalid block along with the puzzle solution, it won’t receive the
+reward (and hence penalized by wastage of computational resources).</p>
+
+<p>After the new block is proposed, new nodes begin to propose blocks on
+top of it (hence, <em>blockchain</em>). The longest chain of valid blocks is
+accepted as the consensus state.</p>
+
+<h3 id="stability">Stability</h3>
+
+<p>Stability is defined as the operation of system in a manner that it
+facilitates proper transactions. For Bitcoin to be stable, it’s 3
+sub-systems also need to be stable. The paper examines the stability of
+the subsystems independently of each other.</p>
+
+<h4 id="communication-networks">Communication Networks</h4>
+
+<p>In the current implementation, the peer-to-peer network is not always
+incentive compatible since it participants do not gain much reward from
+relaying information <a class="citation" href="#balloons">(Babaioff et al., 2011)</a>. There is also a possibility of DDoS
+attacks against mining pools. <a class="citation" href="#DDOS">(Johnson et al., 2014)</a></p>
+
+<h4 id="consensus-mechanism-1">Consensus Mechanism</h4>
+
+<p>The paper suggests 5 properties as the criteria for consensus:</p>
+
+<ul>
+  <li>
+    <p><strong>Eventual Consensus</strong> - At any time, all honest nodes will agree on
+the prefix chain that should be the prefix of the future prefix
+chain with a high probability.</p>
+  </li>
+  <li>
+    <p><strong>Exponential Convergence</strong> - Probability of fork of depth $ n $ is
+$ O(2^{-n}) $ . This provides confidence that chain prefix will be a
+part of the longest chain.</p>
+  </li>
+  <li>
+    <p><strong>Liveness</strong> - Valid transactions will continue to be included in
+the blockchain.</p>
+  </li>
+  <li>
+    <p><strong>Correctness</strong> - Not necessary but useful for SPV clients which
+validate only proof of work and not transactions.</p>
+  </li>
+  <li>
+    <p><strong>Fairness</strong> - Proportion of blocks mined by a miner is directly
+proportional to its computational power.</p>
+  </li>
+</ul>
+
+<p>Nakamoto originally argued that Bitcoin will remain stable as long as
+all miners follow their own economic incentives <a class="citation" href="#nakamoto">(Nakamoto &amp; others, 2008)</a>, a property
+called incentive compatibility. Thus, compliance by the miners in
+Bitcoin is a Nash Equilibrium and this would imply incentive
+compatibility for Bitcoin as no miner would have any incentive to
+unilaterally change strategy. This would imply a notion of weak
+stability if other equilibria exist and strong stability if universal
+compliance were the sole equilibrium. It can be shown that with a
+majority of miners behaving compliantly, a single longest (correct)
+chain will rapidly emerge implying convergence, consensus and liveness .
+The paper also quotes various attacks explored by researchers such as
+<em>Selfish Mining</em>, <em>Goldfinger Attack</em>, <em>Feather Forking</em> etc.</p>
+
+<h3 id="alternative-consensus-protocols">Alternative Consensus Protocols</h3>
+
+<p>Bitcoin’s consensus protocol has raised many concerns about it’s
+performance, scalability and wastage of computational resources.
+<!-- [//]: # (Discussion on performance has been discussed in detail in the post on Speed-Security Tradeoff) --></p>
+
+<h4 id="alternative-computational-puzzles">Alternative Computational Puzzles</h4>
+
+<p>There has been ongoing research in trying to replace Bitcoin’s
+computational puzzle with puzzles which are ASIC Resistant,
+Non-outsourceable or which serve other useful purposes outside of the
+Bitcoin system (e.g. Permacoin <a class="citation" href="#permacoin">(Miller et al., 2014)</a>)</p>
+
+<h4 id="virtual-mining-and-proof-of-stake">Virtual Mining and Proof-of-Stake</h4>
+
+<p>In Proof-of-Work, getting the right answer is very hard and expensive,
+and you get rewarded for getting it but there is a lot of power
+consumption. In contrast to this in Proof-of-Stake, getting the right
+answer is very easy, but getting the wrong answer is very expensive
+because you get punished for getting it and by avoiding the consumption
+of computational cycles, no real-world resources are wasted. However, it
+is susceptible to the nothing-at-stake problem which is due to costless
+simulation attacks since it costs nothing to construct an alternate view
+of history in which the allocation of currency evolves differently.</p>
+
+<h3 id="anonymity-and-privacy">Anonymity and Privacy</h3>
+
+<p>Due to the public nature of the blockchain it is sometimes possible to
+trace the flow of money between pseudonyms and conclude that they are
+likely controlled by the same individual which could be a threat to the
+privacy of the individual. Linking can also be applied transitively to
+yield clusters of addresses, this is an instance of transaction graph
+analysis.</p>
+
+<h4 id="proposals-for-improving-anonymity">Proposals for Improving Anonymity</h4>
+
+<p>The paper compares various techniques proposed to preserve anonymity:
+Peer-to-peer mixing protocols, distributed mix networks and privacy
+preserving altcoins like Zerocoin.</p>
+
+<h3 id="extending-bitcoins-functionality">Extending Bitcoin’s Functionality</h3>
+
+<p>Bitcoin’s scripting functionality could potentially be used for many
+applications other than serving as a digital currency e.g. Colored
+Coins, Secure Timestamping, Overlay Protocols etc.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Bitcoin is a rare case where theory is ahead of practice with many open
+questions for the research community on the design of bitcoin, it’s efficacy and
+the possibility of better alternatives. We still do not have a model which
+explains what happens on modifying different parameters or environment of
+Bitcoin.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography">
+<li><span id="SoK">Bonneau, J., Miller, A., Clark, J., Narayanan, A., Kroll, J. A., &amp; Felten, E. W. (2015). SoK: Research Perspectives and Challenges for Bitcoin and Cryptocurrencies. <i>2015 IEEE Symposium on Security and Privacy</i>, 104–121. https://doi.org/10.1109/SP.2015.14</span></li>
+<li><span id="BBP">Garay, J. A., Kiayias, A., &amp; Leonardos, N. (2015). The Bitcoin Backbone Protocol: Analysis and Applications. <i>EUROCRYPT (2)</i>, 281–310. https://doi.org/10.1007/978-3-662-46803-6_10</span></li>
+<li><span id="balloons">Babaioff, M., Dobzinski, S., Oren, S., &amp; Zohar, A. (2011). On Bitcoin and Red Balloons. <i>SIGecom Exch.</i>, <i>10</i>(3), 5–9. https://doi.org/10.1145/2325702.2325704</span></li>
+<li><span id="DDOS">Johnson, B., Laszka, A., Grossklags, J., Vasek, M., &amp; Moore, T. (2014). Game-Theoretic Analysis of DDoS Attacks Against Bitcoin Mining Pools. In R. Böhme, M. Brenner, T. Moore, &amp; M. Smith (Eds.), <i>Financial Cryptography and Data Security</i> (pp. 72–86). Springer Berlin Heidelberg.</span></li>
+<li><span id="nakamoto">Nakamoto, S., &amp; others. (2008). <i>Bitcoin: A peer-to-peer electronic cash system</i>.</span></li>
+<li><span id="permacoin">Miller, A., Juels, A., Shi, E., Parno, B., &amp; Katz, J. (2014). Permacoin: Repurposing bitcoin work for data preservation. <i>2014 IEEE Symposium on Security and Privacy</i>, 475–490.</span></li>
+</ol>
 
       </div>
-      
-  </div>
-</div>
-<!-- end article -->
-		
-			
-<!-- begin article -->
-<div class="article">
-  <div class="container">
 
-    <div class="article__wrapper">
+      <div class="post__share">
+        <span class="share__title">Share this article:</span>
+        <ul class="share__list list-reset">
+          <li class="share__item">
+            <a class="share__facebook" href="https://www.facebook.com/sharer/sharer.php?u=/2019/08/05/research-perspective-on-blockchain/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-facebook"></i></a>
+          </li>
 
-        
-          <a href="/2019/10/10/bitcoin-and-red-balloons/" class="article__image" style="background-image: url(/images/14.jpg)">
-          </a>
-        
+          <li class="share__item">
+            <a class="share__twitter" href="https://twitter.com/intent/tweet?text=Paper%20Review%20-%20Research%20Perspectives%20for%20Cryptocurrencies&url=/2019/08/05/research-perspective-on-blockchain/" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-twitter"></i></a>
+          </li>
 
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-                <a href="/tag/economics" class="article__tag">economics</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/10/10/bitcoin-and-red-balloons/">Paper Review - Bitcoin and Red Balloons</a>
-          </h2>
-      
-          <p class="article__excerpt">The paper by (Babaioff et al., 2012) demonstrates that the peer-to-peer layer and the gossip
-protocol are not always incentive compatible i.e., the participants do
-not internalize su...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-10-10T15:01:35+05:30">October 10, 2019</time></span>
-            </div>
+          <li class="share__item">
+            <a class="share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/2019/08/05/research-perspective-on-blockchain/&amp;title=Paper%20Review%20-%20Research%20Perspectives%20for%20Cryptocurrencies&amp;summary=&amp;source=" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
+          </li>
 
-            <a href="/2019/10/10/bitcoin-and-red-balloons/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
-
-        </div>
-
+          <li class="share__item">
+            <a class="share__pinterest" href="http://pinterest.com/pin/create/button/?url=/2019/08/05/research-perspective-on-blockchain/&amp;media=/images/06.jpg&amp;description=Paper%20Review%20-%20Research%20Perspectives%20for%20Cryptocurrencies" onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest" rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
+          </li>
+        </ul>
       </div>
-      
+    </article>
+    <!-- end post -->
+    </div>
   </div>
-</div>
-<!-- end article -->
-		
-			
-<!-- begin article -->
-<div class="article">
+
   <div class="container">
-
-    <div class="article__wrapper">
-
+  <div class="post__navigation">
+    
+    <div class="prev">
+      <a class="post__nav__image" href="/2019/07/07/flash-boys/" style="background-image: url(/images/11.jpg)"></a>
+      <h2 class="post__nav__title">
+        <i class="ion ion-md-arrow-back"></i>
+        <a href="/2019/07/07/flash-boys/">Paper Review - Flash Boys 2.0</a>
+      </h2>
+      <p class="prev__excerpt">
         
-          <a href="/2019/10/02/simple-economics-of-blockchain/" class="article__image" style="background-image: url(/images/12.jpg)">
-          </a>
-        
-
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-                <a href="/tag/economics" class="article__tag">economics</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/10/02/simple-economics-of-blockchain/">Paper Review - Economics of Blockchain</a>
-          </h2>
-      
-          <p class="article__excerpt">Blockchain-based Distributed Ledgers (DLs) promise to transform the
-existing financial system. The idea behind such a transformation is to
-replace centralized institutions that gover...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-10-02T15:01:35+05:30">October 2, 2019</time></span>
-            </div>
-
-            <a href="/2019/10/02/simple-economics-of-blockchain/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
-
-        </div>
-
-      </div>
-      
-  </div>
-</div>
-<!-- end article -->
-		
-			
-<!-- begin article -->
-<div class="article">
-  <div class="container">
-
-    <div class="article__wrapper">
-
-        
-          <a href="/2019/09/05/bitcoin-backbone-protocol/" class="article__image" style="background-image: url(/images/07.png)">
-          </a>
-        
-
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/09/05/bitcoin-backbone-protocol/">Paper Review - Bitcoin Backbone Protocol</a>
-          </h2>
-      
-          <p class="article__excerpt">The paper by (Garay et al., 2015) analyzes the consensus mechanism used in Bitcoin dubbed as the
-“Bitcoin Backbone Protocol”. The paper assumes a “flat-model” and proves two of the m...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-09-05T15:01:35+05:30">September 5, 2019</time></span>
-            </div>
-
-            <a href="/2019/09/05/bitcoin-backbone-protocol/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
-
-        </div>
-
-      </div>
-      
-  </div>
-</div>
-<!-- end article -->
-		
-			
-<!-- begin article -->
-<div class="article">
-  <div class="container">
-
-    <div class="article__wrapper">
-
-        
-          <a href="/2019/08/05/research-perspective-on-blockchain/" class="article__image" style="background-image: url(/images/06.jpg)">
-          </a>
-        
-
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/08/05/research-perspective-on-blockchain/">Paper Review - Research Perspectives for Cryptocurrencies</a>
-          </h2>
-      
-          <p class="article__excerpt">The article titled “SoK: Research Perspectives and Challenges for Bitcoin and
-Cryptocurrencies” (Bonneau et al., 2015) provides a comprehensive overview of the current state of
-resea...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-08-05T15:01:35+05:30">August 5, 2019</time></span>
-            </div>
-
-            <a href="/2019/08/05/research-perspective-on-blockchain/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
-
-        </div>
-
-      </div>
-      
-  </div>
-</div>
-<!-- end article -->
-		
-			
-<!-- begin article -->
-<div class="article">
-  <div class="container">
-
-    <div class="article__wrapper">
-
-        
-          <a href="/2019/07/07/flash-boys/" class="article__image" style="background-image: url(/images/11.jpg)">
-          </a>
-        
-
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-                <a href="/tag/economics" class="article__tag">economics</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/07/07/flash-boys/">Paper Review - Flash Boys 2.0</a>
-          </h2>
-      
-          <p class="article__excerpt">I had the pleasure of attending a talk by Prof. Ari
+          I had the pleasure of attending a talk by Prof. Ari
 Juels at EPFL’s IC Research Day
 (2019) on Frontrunning
-in Decentralised Exchanges (DEXes). Interested readers can watch the talk
-h...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-07-07T00:00:35+05:30">July 7, 2019</time></span>
-            </div>
-
-            <a href="/2019/07/07/flash-boys/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
-
-        </div>
-
-      </div>
-      
-  </div>
-</div>
-<!-- end article -->
-		
-	
-	</div>
-</div>
-<nav class="pagination">
-  <div class="container">
-    <div class="pagination__list">
-
-      
-        <span class="disabled">Prev Posts</span>
-      
-
-      <div class="counter-box">
+...
         
-          <span class="active-link">1</span>
-        
-
-
-        
-      </div>
-
-      
-        <span class="disabled">Next Posts</span>
-      
-
-
+      </p>
     </div>
+    
+
+    
+    <div class="next">
+      <a class="post__nav__image" href="/2019/09/05/bitcoin-backbone-protocol/" style="background-image: url(/images/07.png)">
+      </a>
+      <h2 class="post__nav__title">
+        <a href="/2019/09/05/bitcoin-backbone-protocol/">Paper Review - Bitcoin Backbone Protocol</a>
+        <i class="ion ion-md-arrow-forward"></i>
+      </h2>
+      <p class="next__excerpt">
+        
+          The paper by {% cite BBP %} analyzes the consensus mechanism used in Bitcoin dubbed as the
+"Bitcoin Backbon...
+        
+      </p>
+    </div>
+    
   </div>
-</nav>
+
+   <!-- begin comments -->
+<div class="comments">
+  <div id="disqus_thread"></div>
+  <script>
+    (function () {
+      var d = document, s = d.createElement('script');
+      s.src = '//anurag-jain.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+  </noscript>
+</div>
+<!-- end comments --> 
+  </div>
 
   </main>
   <!-- end content -->

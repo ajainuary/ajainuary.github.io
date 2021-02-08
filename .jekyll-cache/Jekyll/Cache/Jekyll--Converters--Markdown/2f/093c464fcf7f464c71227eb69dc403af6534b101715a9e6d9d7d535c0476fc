@@ -1,0 +1,226 @@
+I"�%<p>The paper by <a class="citation" href="#BBP">(Garay et al., 2015)</a> analyzes the consensus mechanism used in Bitcoin dubbed as the
+“Bitcoin Backbone Protocol”. The paper assumes a “flat-model” and proves two of the mechanism’s fundamental
+properties, chain quality and common prefix.</p>
+
+<p>The paper also analyzes Nakomoto’s proposal for solving the Byzantine
+Agreement problem and shows that it fails to satisfy the <em>Validity</em> and
+<em>Adversity</em> correctness conditions. The authors propose an alternative
+based on the <em>Bitcoin Backbone Protocol</em> that solves the problem.</p>
+
+<h2 id="analysis">Analysis</h2>
+
+<h2 id="q-bounded-synchronous-model">q-bounded Synchronous Model</h2>
+
+<p>For the sake of analysis, we assume that the execution takes place
+synchronously in rounds, where in each round all parties can communicate
+with each other.</p>
+
+<p>Parties are allowed to perform at most $q$ attempts at Proof-of-Work per
+round. Parties with higher computational power could be modelled as a
+coalition of many parties.</p>
+
+<p>There are $n$ parties, out of which $t$ are controlled by the adversary.
+It is assumed that the adversary has the ability to communicate between
+rounds while the honest nodes don’t.</p>
+
+<h3 id="notation">Notation</h3>
+
+<p>Consider three random variables associated with the $i^{th}$ round,<br />
+\(X_i = 
+     %\begin{cases}
+      \left\{
+      \begin{array}{cl}
+         1  &amp;  \text{if atleast one honest party obtains a POW in the round}\\
+         0 &amp; \text{otherwise.}
+      \end{array} \nonumber
+        \right.
+     %\end{cases}\)
+\(Y_i = 
+\left\{
+\begin{array}{cl}
+1 &amp;\text{if exactly one honest party obtains a POW in the round} \\
+0 &amp;\text{otherwise.} \\ 
+\end{array} 
+\right.\)
+$$Z_i = n \quad\text{if the adversary finds } n \text{ blocks in the round}$$</p>
+
+<p>Also, $\mathbb{E}(X) = f$ for convenience.</p>
+
+<h3 id="epsilon-lambda---typical-execution">$(\epsilon, \lambda)$ - Typical Execution</h3>
+
+<p>An execution of $\lambda$ consecutive rounds is said to be
+$(\epsilon, \lambda)$ - typical if $X_i$, $Y_i$ and $Z_i$ are close
+enough to their expected values for all rounds, i.e.<br />
+Let $S$ be the set of $\lambda$ consecutive rounds, such that
+$\lambda \geq 2/f$
+$$(1-\epsilon) \mathbb{E}(X(S)) &lt; X(S) &lt; (1-\epsilon) \mathbb{E}(X(S))\ \ \forall i \in S$$
+$$(1-\epsilon) \mathbb{E}(Y(S)) &lt; Y(S)\ \ \forall i \in S$$
+$$Z(S) &lt; \mathbb{E}(Z(S)) + \epsilon\mathbb{E}(X(S))\ \  \forall i \in S$$</p>
+
+<p>It can be shown that an execution will be $(\epsilon, \lambda)$ -
+typical with probability $1-e^{-\Omega(\epsilon^2\lambda f)}$ (using
+Chernoff Bounds).</p>
+
+<h3 id="honest-majority-assumption">Honest Majority Assumption</h3>
+
+<p>The adversary can control at most $t$ out of $n$ parties such that
+$t \leq (1-\delta)(n-t)$ where $3(f+\epsilon) &lt; \delta$ for some
+$\delta \in [0, 1]$</p>
+
+<h2 id="bounds-on-the-probability-of-pow">Bounds on the probability of PoW</h2>
+
+<p>Let $p$ be the probability of success of a single query. Then, for $q$
+queries,</p>
+
+<p>$$\mathbb{E}(X) = f = 1-(1-p)^{q(n-t)}$$</p>
+
+<p>$$\implies (1-f)pq(n-t) \leq f \leq pq(n-t)$$</p>
+
+<p>$$\implies pq(n-t)(1-p)^{q(n-t)} \leq f \leq pq(n-t)$$</p>
+
+<h2 id="desired-properties">Desired Properties</h2>
+
+<h2 id="common-prefix">Common Prefix</h2>
+
+<p>If $C_1$ and $C_2$ are the chains adopted by any two honest nodes $P_1$
+and $P_2$ at rounds $r_1$ and $r_2$ respectively, then pruning the $k$
+blocks from the end of $C_1$ will result in a chain that is a valid
+prefix of $C_2$.</p>
+
+<h2 id="chain-quality">Chain Quality</h2>
+
+<p>The chain quality property $Q_{cq}$, parameterized by $\mu \in [0, 1]$
+and $l$ states that for a chain $C$ adopted by any honest party for any
+set of $l$ consecutive blocks of the chain should contain at least
+$\mu l$ blocks contributed by honest nodes.</p>
+
+<p>Ideally, $1-\mu$ (or the contribution of blocks by an adversary) should
+be directly proportional to the hashing power of adversarial nodes. Any
+scenario that violates this could be considered an attack on the
+blockchain.</p>
+
+<h2 id="chain-growth">Chain Growth</h2>
+
+<p>The chain growth property $Q_{cg}$, parameterized by $\tau \in [0, 1]$
+and $s$ states that for a chain $C$ adopted by any honest party should
+be extended by atleast $\tau s$ blocks in any $s$ consecutive rounds.</p>
+
+<p>These three properties enable the two requirements for any robust
+transaction ledger:</p>
+
+<ul>
+  <li>
+    <p><strong>Persistence</strong>: Persistence states that once a transaction goes
+more than $k$ blocks “deep” into the blockchain of one honest
+player, then it will be included in every honest player’s blockchain
+with overwhelming probability, and it will be assigned a permanent
+position in the ledger (essentially, this means that all honest
+players agree on all the transactions that took place and in what
+order). In a more concrete Bitcoin-like setting, Persistence is
+essential to ensure that credits are final and that they happened at
+a certain “time” in the system’s timeline (which is implicitly
+defined by the ledger itself).</p>
+  </li>
+  <li>
+    <p><strong>Liveness</strong>: The Liveness property states that as long as a
+transaction comes from an honest account holder and is provided by
+the environment to all honest players, then it will be inserted into
+the honest players’ ledgers (assuming the environment keeps
+providing it as an input for a sufficient number of rounds) i.e, all
+transactions originating from honest account holders will eventually
+end up at a depth more than $k$ blocks in an honest player’s
+blockchain, and hence the adversary cannot perform a selective
+denial of service attack against honest account holders. Liveness
+implies Validity, because assuming the ledger is maintained for long
+enough, a majority of transactions originating from the honest
+parties will be included (despite the fact that honest parties may
+control a minority of blocks in the blockchain).</p>
+  </li>
+</ul>
+
+<h2 id="bitcoin-backbone-protocol-in-the-bounded-delay-model">Bitcoin Backbone Protocol in the Bounded Delay Model</h2>
+
+<p>Consider the Bitcoin Backbone Protocol in a network where the
+synchronization (message passing between honest nodes) does not happen
+immediately but instead happens after $\Delta$-rounds. We define new
+random variables (parallel to the ones defined in the original model).
+\(X_i' = 
+     \begin{cases}
+       1 &amp;\text{if $i$ is a $\Delta$-isolated successful round} \\
+       0 &amp;\text{otherwise.} \\ 
+     \end{cases}\)
+\(Y_i' = 
+     \begin{cases}
+       1 &amp;\text{if $i$ is a $\Delta$-isolated uniquely successful round} \\
+       0 &amp;\text{otherwise.} \\ 
+     \end{cases}\)</p>
+
+<p>The $i^\text{th}$ round is said to be
+isolated if no party managed to be successful in a window of
+$\Delta$-rounds before and after the $i^\text{th}$ round. We have
+$$\mathbb{E}[X_i’] = f(1-f)^{\Delta-1} \geq f[1-(\Delta-1)f]$$
+$$\mathbb{E}[Y_i’] \geq f(1-f)^{2\Delta-1} \geq f[1-(2\Delta-1)f]$$
+Note that the probability of $\Delta$-isolated uniquely successful
+rounds decreases which weakens the Honest Majority Assumption (we can
+tolerate lesser fraction of the computing power controlled by the
+adversary)</p>
+
+<h3 id="typical-execution">Typical Execution</h3>
+
+<p>An execution is $(\epsilon, \lambda, \Delta)$ -typical, with
+$\epsilon \in(0,1), \lambda \geq 2 / f,$ and integer $\Delta,$ if, for
+any set $S$ of at least $\lambda$ consecutive rounds, the following
+hold.</p>
+
+<ul>
+  <li>
+    <p>$(1-\epsilon) \mathbb{E}\left[X^{\prime}(S)\right]&lt;X^{\prime}(S), \quad X(S)&lt;(1+\epsilon) \mathbb{E}[X(S)],$
+and
+$(1-\epsilon) \mathbb{E}\left[Y^{\prime}(S)\right]&lt;Y^{\prime}(S)$</p>
+  </li>
+  <li>
+    <p>$Z(S)&lt;\mathbb{E}[Z(S)]+\epsilon \mathbb{E}\left[X^{\prime}(S)\right]$</p>
+  </li>
+  <li>
+    <p>No insertions, no copies, and no predictions occured</p>
+  </li>
+</ul>
+
+<p>An execution is typical with probability
+$1-e^{-\Omega\left(\epsilon^{2} f^{2}(1-f)^{4 \Delta-2} \lambda\right)}$.
+(Reduced from the standard model) The bounds for chain quality, common
+prefix, and chain growth property are also weakened. This could be
+possibly offset by increasing $k$ (the number of blocks dropped from the
+end) which would increase the time to finality. In case of a typical
+execution (with high probability) the following properties will hold
+(weaker than the original model)</p>
+
+<ul>
+  <li>
+    <p><strong>Chain Growth</strong> $\tau=(1-\epsilon) f(1-f)^{\Delta-1}$ instead of
+$(1-\epsilon)f$</p>
+  </li>
+  <li>
+    <p><strong>Chain Quality</strong>
+$\mu=1-\frac{1}{(1-\epsilon)(1-f)^{\Delta}} \cdot \frac{t}{n-t}-\frac{\epsilon}{1-\epsilon} \cdot\left(1+\frac{\Delta}{\lambda}\right)$
+instead of
+$1-\left(1+\frac{\delta}{2}\right) \cdot \frac{t}{n-t}-\frac{\epsilon}{1-\epsilon}&gt;1-\left(1+\frac{\delta}{2}\right) \cdot \frac{t}{n-t}-\frac{\delta}{2}$</p>
+  </li>
+  <li>
+    <p><strong>Common Prefix</strong> $k \geq 2 \lambda f+2 \Delta$ instead of
+$k \geq 2 \lambda f$</p>
+  </li>
+</ul>
+
+<h2 id="novel-ideas">Novel Ideas</h2>
+
+<p>The paper presents formal proofs of Nakomoto’s proposal of Bitcoin and
+proposes important properties, <em>Liveness</em> and <em>Persistence</em> for
+blockchain protocols to meet in order to create a secure distributed
+ledger. The paper also analyzes the same protocol and proves the same
+properties in case of a Bounded Delay Model.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="BBP">Garay, J. A., Kiayias, A., &amp; Leonardos, N. (2015). The Bitcoin Backbone Protocol: Analysis and Applications. <i>EUROCRYPT (2)</i>, 281–310. https://doi.org/10.1007/978-3-662-46803-6_10</span></li></ol>
+:ET

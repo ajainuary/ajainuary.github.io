@@ -1,0 +1,98 @@
+I"n<p>The paper by <a class="citation" href="#babaioffbitcoin">(Babaioff et al., 2012)</a> demonstrates that the peer-to-peer layer and the gossip
+protocol are not always incentive compatible i.e., the participants do
+not internalize sufficient value from propagating information to justify
+the opportunity costs of doing the same. The authors also propose a
+sybil-proof scheme which is able to incentivize information propagation
+in Nash Equilibrium. It is also shown that there are no
+dominant-strategy mechanisms which can do the same.</p>
+
+<h2 id="the-incentive-problem">The Incentive Problem</h2>
+
+<p>Bitcoin relies on a peer-to-peer network to verify and authorize all
+transactions that are performed with the currency. The spender signs a
+transaction and then distributes them to a few peers who are expected to
+propagate the transaction further. Coincidentally, these peers also
+compete to verify the transaction and thus gain miner’s fee as reward.
+One can clearly observe that there is a conflict of interest as the
+peers have an incentive <em>not</em> to propagate information to others thereby
+reducing competition.</p>
+
+<h2 id="proposed-reward-scheme">Proposed Reward Scheme</h2>
+
+<p>A successful reward scheme has to posses several properties. First, it
+has to incentivize <em>information propagation</em> and <em>no duplication</em>. That
+is, it will be in a node’s best interest to distribute the transaction
+to all its children without duplicating itself, as well as never
+duplicating when it authorizes. Second, at the end of the distribution
+phase most of the nodes have to be aware of the transaction. Lastly, we
+would like to achieve this with small rewards, while minimizing the
+number of seeds, to ease the burden of initial distribution.</p>
+
+<h3 id="beta-mathcal-h-almost-uniform-scheme">$(\beta, \mathcal H)$-<em>almost-uniform</em> Scheme</h3>
+
+<p>In this scheme, each node in the chain except $v$ (the verifying node
+who happens to be at a level $l$) gets a reward of $\beta$, and $v$ gets
+a reward of $1+(\mathcal H-l+1)\beta$. The intuition behind giving the
+authorizing node a reward of $1+(\mathcal H-l+1)\beta$ is to mimic the
+reward that the node would have gotten if it duplicated itself
+$\mathcal H-h$ times so that it has no benefit in duplicating itself
+before trying to authorize the transaction itself. The total reward
+distributed in the scheme comes out to be $1+\mathcal H \beta$.</p>
+
+<p>The number of initial seeds required for a
+$(\beta, \mathcal H)$-<em>almost-uniform</em> scheme so that only the profiles
+of strategies in which every node of depth at most $\mathcal H$ never
+duplicates and always propagates information survive in <em>every</em> iterated
+removal of weakly dominated strategies is at least
+$\frac{2}{\beta} + 13$. Consider the following two variants of the
+scheme:</p>
+
+<ul>
+  <li>
+    <p>$\beta = \frac{1}{\mathcal H}$, in this case total reward
+distributed is $2$ but we require at least $2\mathcal H + 13$
+initial seeds.</p>
+  </li>
+  <li>
+    <p>$\beta = 1$, in this case total reward distributed is
+$1+\mathcal H \in O(\mathcal H)$ but we need only $15$ initial
+seeds.</p>
+  </li>
+</ul>
+
+<h4 id="hybrid-scheme">Hybrid Scheme</h4>
+
+<p>By combining multiple schemes we can obtain a scheme that has <em>both</em> a
+constant number of seeds and a constant overhead. The scheme works as
+follows: we run the $(\frac 1 H,H)$-almost uniform scheme with a set of
+$A$ seeds ($|A|=t-7$) and simultaneously run the $(1,1+\log_d H)$-almost
+uniform scheme with a set of $B$ seeds ($|B|=7$) for some $t &gt; 14$. The
+expected total sum of payments comes out to be $3$ in this case and
+$2+\log_d H$ in the worst case.</p>
+
+<h2 id="impossibility-result-for-dominant-strategy-mechanisms">Impossibility Result for Dominant Strategy Mechanisms</h2>
+
+<p>Suppose that $H\geq 3$. There is no Sybil-proof reward scheme in which
+information propagation and no duplication are dominant strategy for all
+nodes at depth $3$ or less.</p>
+
+<h2 id="related-work">Related Work</h2>
+
+<p>Johnson et al. <a class="citation" href="#johnson_game-theoretic_2014">(Johnson et al., 2014)</a> have studied whether and
+when participants in the peer-to-peer protocol are incentivized to
+engage in network-level denial-of-service attacks against others. They
+conclude that mining pools have an incentive to engage in attacks, that
+larger pools are better to attack than smaller pools and that larger
+pools have a greater incentive than smaller pools to attack at all.
+Denial-of-service attacks against pools are regularly observed in the
+wild, so this theoretical analysis can be backed up by observations <a class="citation" href="#vasek_empirical_2014">(Vasek et al., 2014)</a>.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="babaioffbitcoin">Babaioff, M., Dobzinski, S., Oren, S., &amp; Zohar, A. (2012). On Bitcoin and Red Balloons. <i>Proceedings of the 13th ACM Conference on Electronic Commerce</i>, 56–73. https://doi.org/10.1145/2229012.2229022</span></li>
+<li><span id="johnson_game-theoretic_2014">Johnson, B., Laszka, A., Grossklags, J., Vasek, M., &amp; Moore, T. (2014). Game-Theoretic Analysis of DDoS Attacks Against Bitcoin Mining Pools. In R. Böhme, M. Brenner, T. Moore, &amp; M. Smith (Eds.), <i>Financial Cryptography and Data Security</i> (pp. 72–86). Springer Berlin Heidelberg.</span></li>
+<li><span id="vasek_empirical_2014">Vasek, M., Thornton, M., &amp; Moore, T. (2014). Empirical Analysis of Denial-of-Service Attacks in the Bitcoin Ecosystem. In R. Böhme, M. Brenner, T. Moore, &amp; M. Smith (Eds.), <i>Financial Cryptography and Data Security</i> (pp. 57–71). Springer Berlin Heidelberg.</span></li></ol>
+
+<h2 id="footnotes">Footnotes</h2>
+
+:ET

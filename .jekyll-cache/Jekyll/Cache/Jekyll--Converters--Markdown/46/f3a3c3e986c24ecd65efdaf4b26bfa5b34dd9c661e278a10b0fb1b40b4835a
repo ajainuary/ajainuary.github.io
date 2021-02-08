@@ -1,0 +1,101 @@
+I"�<p>Blockchain-based <em>Distributed Ledgers</em> (DLs) promise to transform the
+existing financial system. The idea behind such a transformation is to
+replace centralized institutions that govern the system by a
+<em>decentralized</em> peer-to-peer network of nodes. I discuss a paper by <a class="citation" href="#economics_of_blockchain">(Catalini &amp; Gans, 2016)</a> that discusses economic consequences of decentralization.</p>
+
+<p>The paper builds on economic theory to explain how blockchain technology
+can drive markets by reducing two key costs associated with economic
+activity: <em>cost of verification</em> and <em>cost of networking</em> <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>. Due to
+absence of a central clearing house or market maker, these novel
+networks, when permissionless, exhibit low barriers to entry and
+innovation.</p>
+
+<p>Another novelty of blockchain platforms is their ability to incentivize
+early contributions by developers, investors and early adopters using
+native token offerings.</p>
+
+<h2 id="networking_inefficiencies">Economic Consequences of Decentralization</h2>
+
+<p>Trade between any two parties relies on trusted intermediaries. In
+exchange for their services, intermediaries charge fees and capitalize
+on their ability to observe all transactions taking place within their
+marketplaces. They observe an informational advantage which offers them
+substantial market power and control over the participants. This results
+in increased costs, reduced privacy, barriers to innovation and single
+points of failure <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">2</a></sup>.</p>
+
+<p>Blockchain mitigates this reliance by distributing trust and runnning
+decentralized networks of exchange. This allows for the creation of
+ecosystems where the platform operators do not have an undue advantage.
+Hence, blockchain platform exhibit low barriers to entry and innovation.</p>
+
+<h2 id="cost_of_verification">Cost of Verification</h2>
+
+<p>By using costless blockchain verification over a costly verification
+through an intermediary allows value to be transferred across the globe
+at a minimal cost, expediting market activity. However, this does not
+solve last mile problems of compliance (e.g. KYC &amp; AML rules), linking
+offline world with the real world, etc. which require an additional
+cost. A lower cost of verification also makes it easier to define
+property rights at a more granular scale than before, as any digital
+asset (or small fraction of it) can be traded, exchanged or tracked at a
+low cost on a shared ledger.</p>
+
+<h2 id="cost-of-networking">Cost of Networking</h2>
+
+<p>Cost of networking refers to the inefficiencies that arise due to the
+market power of <a href="#networking_inefficiencies">incumbent players</a>. The digital marketplaces that
+emerge on blockchains allow participants to make joint investments in
+shared infrastructure and digital public utilities without assigning
+market power to a platform operator, and are characterized by increased
+competition and lower barriers to entry, and a lower privacy risk.
+Therefore, blockchains also reduce the cost of networking.</p>
+
+<h2 id="materialization-issues">Materialization Issues</h2>
+
+<h3 id="performance">Performance</h3>
+
+<p>One of the key problem with the current design of blockchains is the
+<a href="/2019/10/17/need-for-speed/#need_for_speed">Speed-Scalability Tradeoff</a> since for blockchains to be a suitable
+replacement for traditional networks it will need to achieve a level of
+performance (in terms of throughput, latency, cost per transaction,
+etc.).</p>
+
+<h3 id="regulatory-frameworks">Regulatory Frameworks</h3>
+
+<p>Regulatory and Compliance requirements introduce an additional overhead
+in terms of <a href="#cost_of_verification">cost</a> and existing frameworks need
+significant revamping in order to mitigate this.</p>
+
+<h3 id="limited-applicability">Limited Applicability</h3>
+
+<p>Blockchains are not a panacea for every possible technical and market
+challenge a digital ecosystem may face. Wüst and Gervais <a class="citation" href="#do_you_need_blockchain">(Wüst &amp; Gervais, 2017)</a> explore suitable cases for applications of
+blockchain and point out common use cases where blockchains are not a
+suitable solution.</p>
+
+<h2 id="related-work">Related Work</h2>
+
+<p>I discussed various applications of blockchains in my <a href="/2019/08/05/research-perspective-on-blockchain/">previous article</a>
+and the utility of blockchains in building decentralized exchanges and
+the caveats associated were discussed in detail in this <a href="/2019/07/07/flash-boys/">article</a>.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="economics_of_blockchain">Catalini, C., &amp; Gans, J. S. (2016). Some Simple Economics of the Blockchain. <i>SSRN Journal</i>. https://doi.org/10.2139/ssrn.2874598</span></li>
+<li><span id="do_you_need_blockchain">Wüst, K., &amp; Gervais, A. (2017). <i>Do you need a Blockchain?</i> Cryptology ePrint Archive, Report 2017/375.</span></li></ol>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Not to be confused with computer networking <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Anecdotally, the first block of Bitcoin included a reference to
+reserve bank’s failure <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

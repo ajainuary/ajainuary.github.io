@@ -1,0 +1,205 @@
+I"4)<p>I had the pleasure of attending a talk by <a href="https://www.arijuels.com/">Prof. Ari
+Juels</a> at <a href="https://archiveweb.epfl.ch/icresearchday2019.epfl.ch/">EPFL’s IC Research Day
+(2019)</a> on Frontrunning
+in Decentralised Exchanges (DEXes). Interested readers can watch the talk
+<a href="https://portal.klewel.com/watch/webcast/epfl-ic-research-day-2019/talk/LGMQpYNsqi6QbcxPLFuWYD/">here</a>
+and read more about the frontrunning in DEXes on the <a href="http://hackingdistributed.com/2017/08/13/cost-of-decent/">post on Hacking,
+Distributed</a>. In this
+post, I present a brief overview of the paper by <a class="citation" href="#flashboys">(Daian et al., 2019)</a>.</p>
+
+<p>Frontrunning is defined as the act of making a trade based on
+information on trading activity before it is available to the
+public<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>. This information might be of an order which is yet to be
+executed and might affect the price of the asset. This act is illegal
+and makes the market unfair, hence it is strictly monitored by
+regulatory bodies in centralized exchanges.</p>
+
+<h3 id="frontrunning-in-blockchain">Frontrunning in Blockchain</h3>
+
+<p>In a decentralized environment, it is not possible to order the
+transactions in FIFO (First-In-First-Out) manner since different nodes
+might receive the transaction in different orders depending on the
+network delay.</p>
+
+<p>Generally, the miners chose to order the transactions in a blockchain
+that benefits them the most. In Ethereum, miners prioritize transactions
+based on their gas price. Thus, a user can front run another transaction
+by sending his own transaction with a higher gas price.</p>
+
+<h3 id="frontrunning-in-decentralised-exchanges">Frontrunning in Decentralised Exchanges</h3>
+
+<h4 id="continuous-limit-exchanges">Continuous-Limit Exchanges</h4>
+
+<p>Generally, both centralized stock and commodity exchanges and
+decentralized cryptocurrency exchanges share a common exchange design
+element known as a <em>continuous-limit order book</em>. Such an order book
+consists of a combined list of all pending offers from buyers and
+sellers in the system and operates in the following manner:</p>
+
+<ul>
+  <li>
+    <p>Buyers place an order specifying the maximum price at which they
+will purchase an asset</p>
+  </li>
+  <li>
+    <p>Sellers place an order specifying the minimum price at which they
+will sell an asset</p>
+  </li>
+  <li>
+    <p>The exchange will then match orders to complete a transaction.</p>
+  </li>
+  <li>
+    <p>The above steps happen continuously in a FIFO manner (hence,
+<em>continuous-limit</em>).</p>
+  </li>
+</ul>
+
+<p>Decentralized Exchanges manage the order book via smart contracts.
+Typically the order books will be maintained off chain.</p>
+
+<h4 id="insertion-attack">Insertion Attack</h4>
+
+<p>If a bot can observe a pending transaction for purchase with a maximum
+price higher than the minimum price of another pending sell transaction.
+It could front-run the purchase order and insert two orders to buy at
+the lower price from the pending sell transaction and another one to
+sell the same asset at the maximum price of the pending sell order.
+Thus, the bot makes a profit off the spread.</p>
+
+<h4 id="pure-revenue">Pure Revenue</h4>
+
+<p>Since, these orders through smart-contracts can execute batches of
+orders sequentially atomically, reverting back in case any single
+transaction fails. This, guarantees a revenue to the bot without any
+chance of making a loss due to failure of a single transaction.</p>
+
+<h4 id="competition-among-bots">Competition among bots</h4>
+
+<p>There might be multiple bots competing for the an opportunity to
+front-run. This ensues a race among the bots to place their transactions
+first, the rest will lose out on the opportunity. The race takes place
+in the form of bidding by offering higher reward to the miners (<em>Miner
+Extractable Value</em>), this is termed as <em>priority gas auction</em> or PGA.</p>
+
+<h2 id="priority-gas-auctions">Priority Gas Auctions</h2>
+
+<p>PGA is modelled as a sequential game among a set of $n$ players who
+compete against each other to obtain a payoff of $1. The model has
+the following main characteristics:</p>
+
+<ul>
+  <li>
+    <p><strong>Continuous Time</strong> Since blockchain networks are asynchronous, the
+paper models players actions in continuous time.</p>
+  </li>
+  <li>
+    <p><strong>Imperfect Information</strong> Players eventually see one anothers bids,
+but not immediately in order to model network latency. Player $P_i$
+will receive bids after $\Delta_i$ and players having smaller
+latencies will have a competitive advantage.</p>
+
+    <p><em>Note:</em> $\Delta_i$ is measured with respect to miners. Thus
+$\Delta_i = 0$ indicates $P_i$ has the same delay as miners.</p>
+  </li>
+  <li>
+    <p><strong>All Pay Auction</strong> All players will need to pay gas costs for
+transactions even if they fail.</p>
+  </li>
+</ul>
+
+<h3 id="auction-strategies">Auction Strategies</h3>
+
+<p>The paper presents and examines 2 non-cooperative strategies for bots.</p>
+
+<h4 id="reactive-counterbidding"><em>Reactive</em> Counterbidding</h4>
+
+<p>The player bids s initially (which is the minimum starting bid,
+which should be greater than transaction it is trying to frontrun), if
+it then observes another bid $b’ &gt; b$ then it immediately counterbids
+$\min(\max(b\times(1+\delta), b’ + \epsilon), 1 + l(b))$ where $\delta$ is the
+smallest possible increment on the blockchain (set at 12.5% in Ethereum).</p>
+
+<h4 id="blind-raising">Blind Raising</h4>
+
+<p>The player keeps on raising his own bids under a predetermined schedule
+regardless of other player’s bids observed. This can yield an advantage
+of not waiting for the other player’s bid to arrive.</p>
+
+<h4 id="comparison"><em>Comparison</em></h4>
+
+<p>Counterbidding can achieve an advantage over blind raising only if
+$\Delta_i$ is small with respect to $\delta$ (minimum waiting time due
+to throttling in the peer-to-peer network). If $\Delta_i &gt; \delta$ there
+will exist a blind raising strategy that yields an advantage over
+counterbidding.</p>
+
+<h2 id="security-threat-due-to-frontrunning">Security Threat due to Frontrunning</h2>
+
+<p>The paper claims that frontrunning at the application layer poses a
+threat to the underlying consensus layer. The ability of a miner to reap
+rewards through reordering user’s transaction and potentially inserting
+their own transactions creates possibility of attack on the blockchain
+and despite this the miner could also collect transaction fees from PGA!</p>
+
+<h4 id="undercutting-attack">Undercutting Attack</h4>
+
+<p>When the block reward is dominated by transaction fees, it could have a
+high variance. The miner could fork a high-reward block and collect only
+some of the fees, leaving the remainder to incentivize other miners to
+mine on top of this block. If successful, it would reduce the security
+provided by block confirmations <a class="citation" href="#carlsten2016instability">(Carlsten et al., 2016)</a>.</p>
+
+<h4 id="time-bandit-attack">Time-bandit Attack</h4>
+
+<p>The miner could fork the blockchain in an alternative chain in which he
+collects all the rewards and also wins all the auctions (like if he had
+a time machine). Using the profit from the collected rewards, he could
+pay for the computation cost.</p>
+
+<h2 id="proposed-solutions">Proposed Solutions</h2>
+
+<h3 id="using-trusted-hardware-bentov-et-al-2017">Using Trusted Hardware <a class="citation" href="#patent_tee_exchange">(Bentov et al., 2017)</a></h3>
+
+<p>Using Trusted Execution Environments (TEEs), one could encrypt the
+transactions in an isolated environment in which they cannot be
+observed. This solution is not perfect due to vulnerability to
+side-channel attacks since if one could guess that a frontrunnable
+transaction is going to come from a particular IP address, he/she could
+still frontrun it.</p>
+
+<h3 id="submarine-sends-breidenbach-nd">Submarine Sends <a class="citation" href="#libsubmarine">(Breidenbach, n.d.)</a></h3>
+
+<p>Submarine Sends is a method using commitments using which transactions
+are concealed among other transactions which appear similar to this one.
+This is implemented using an intermediate smart contract. Later when the
+commitment is revealed, it is not possible to frontrun the transaction
+since the exchange would not be accepting commitments any more.</p>
+
+<h3 id="batch-auctions-budish-et-al-2015">Batch Auctions <a class="citation" href="#batch_auction">(Budish et al., 2015)</a></h3>
+
+<p>Batch Auctions have been a proposed mechanism in traditional centralized
+exchanges to solve Frontrunning.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="flashboys">Daian, P., Goldfeder, S., Kell, T., Li, Y., Zhao, X., Bentov, I., Breidenbach, L., &amp; Juels, A. (2019). Flash Boys 2.0: Frontrunning, Transaction Reordering, and Consensus Instability in Decentralized Exchanges. <i>ArXiv Preprint ArXiv:1904.05234</i>.</span></li>
+<li><span id="carlsten2016instability">Carlsten, M., Kalodner, H., Weinberg, S. M., &amp; Narayanan, A. (2016). On the instability of bitcoin without the block reward. <i>Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security</i>, 154–167.</span></li>
+<li><span id="patent_tee_exchange">Bentov, I., Juels, A., Zhang, F., Daian, P., &amp; Breidenbach, L. (2017). <i>Real-time cryptocurrency exchange using trusted hardware</i>. https://patents.google.com/patent/US20190156301A1/en</span></li>
+<li><span id="libsubmarine">Breidenbach, L. <i>LibSubmarine</i>. Retrieved September 25, 2019, from https://libsubmarine.org/</span></li>
+<li><span id="batch_auction">Budish, E., Cramton, P., &amp; Shim, J. (2015). The High-Frequency Trading Arms Race: Frequent Batch Auctions as a Market Design Response *. <i>The Quarterly Journal of Economics</i>, <i>130</i>(4), 1547–1621. https://doi.org/10.1093/qje/qjv027</span></li></ol>
+
+<h2 id="footnotes">Footnotes</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>The term originates from the era when stock market trades were
+executed via paper carried by hand between trading desks. The
+routine business of hand-carrying client orders between desks would
+normally proceed at a walking pace, but a broker could literally run
+in front of the walking traffic to reach the desk and execute his
+order first. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

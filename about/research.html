@@ -7,10 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Anurag Jain</title>
+  <title>Research Statement</title>
   <meta name="description" content="Anurag Jain" s website and blog.>
 
-  <link rel="canonical" href="/">
+  <link rel="canonical" href="/about/research">
   <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
   <!-- Fonts -->
@@ -127,406 +127,126 @@
 
   <!-- begin content -->
   <main class="content" aria-label="Content">
-    <!-- begin c-hero -->
-<div class="hero">
-  <div class="container">
-    <div class="row">
-      <div class="col col-6 col-t-12 last-item">
-        <div class="hero__content">
-          <h1 class="hero__title">Hello, I'm <strong>Anurag Jain</strong>
-</h1>
-          <p class="hero__subtitle">A CS undergrad and researcher. I blog about <strong>blockchains</strong>,<strong>maths</strong>, <strong>dev</strong> and sometimes about my  <strong>adventures</strong>.</p>
-          <div class="hero__social">
-            <span class="hero__social-title">Follow Me |</span>
-            <div class="contact">
-  <ul class="contact__list list-reset">
-    
-      <li><a href="https://twitter.com/ajainuary"><i class="ion ion-logo-twitter"></i></a></li>
-    
-
-    
-      <li><a href="https://facebook.com/"><i class="ion ion-logo-facebook"></i></a></li>
-    
-  
-     
-  
-    
-      <li><a href="https://instagram.com/"><i class="ion ion-logo-instagram"></i></a></li>
-    
-  
-    
-      <li><a href="https://pinterest.com/"><i class="ion ion-logo-pinterest"></i></a></li>
-    
-  </ul>
-</div>
-          </div>
-        </div>
-      </div>
-      <div class="col col-6 col-t-12">
-        <div class="hero__image">
-          <img src="/images/profile.jpg" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end hero -->
-
-<div class="container">
-	<div class="row">
-		<div class="col col-12">
-			
-				<h4 class="lates-title">Latest Posts</h4>
-			
+    <div class="container">
+	<div class="page-title-box">
+		<div class="row">
+			<div class="col col-10 push-2 col-11 push-t-1 col-m-12 push-m-0">
+				<h1 class="page-title">Research Statement</h1>
+			</div>
 		</div>
 	</div>
+
+	
 </div>
+
 
 <div class="container">
 	<div class="row">
-	
-		
-			
-<!-- begin article -->
-<div class="article">
-  <div class="container">
+		<!-- begin page -->
+		<article class="page col col-8 col-t-10 col-m-12">
+			<div class="page__content">
+				<p>My research interests lie in the design, development, and analysis of Distributed Ledgers. I am open to exploring problems involving the application of game theory and mechanism design in designing such ledgers. My current work can be classified under two topics: <a href="#fairness_blockchains">Fairness and Game-Theoretic Issues in Blockchains</a> and <a href="#blockchain_scalability">Designing Scalable Blockchains</a>.</p>
 
-    <div class="article__wrapper">
+<hr>
 
-        
-          <a href="/2019/10/17/need-for-speed/" class="article__image" style="background-image: url(/images/13.jpg)">
-          </a>
-        
+<h1 id="blockchains-from-game-theory">Blockchains from Game theory</h1>
 
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/10/17/need-for-speed/">Paper Review - GHOST Protocol</a>
-          </h2>
-      
-          <p class="article__excerpt">Although I’m a big fan of Tom Cruise but this article is not about the movie
-from the Mission Impossible series. In this article, I discuss a paper by (Sompolinsky &amp; Zohar, 2015)...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-10-17T19:30:35+05:30">October 17, 2019</time></span>
-            </div>
+<p>Blockchain is a distributed ledger that uses mechanism design to ensure correct
+functioning. Unlike the Visa Network or centralized banking systems, a
+blockchain is maintained by a decentralized network of nodes. Instead of using a
+central authority, it incentivizes participants to run and secure the underlying
+consensus protocol. Thus, it becomes crucial to ensure that the nodes that
+maintain the ledger are appropriately incentivized in order to prevent them from
+behaving maliciously. Our recent work in the WINE Workshop on Game Theory in
+Blockchain shows that any blockchain protocol can only ensure these miners’
+rewards if and only if the protocol offers block rewards <a class="citation" href="#Jain2020">(Jain &amp; Gujar, 2020)</a>.</p>
 
-            <a href="/2019/10/17/need-for-speed/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
+<p>In a field where practice seems to be ahead of the theory, researchers are
+beginning to realize various limitations and issues in existing blockchain
+protocols. For instance, we found that Bitcoin can face issues in guaranteeing
+incentives for miners when it would transition to a Transaction-Fee Only Model
+<a class="citation" href="#Jain2020">(Jain &amp; Gujar, 2020)</a>.</p>
 
-        </div>
+<h2 id="fairness_blockchains">Fairness and Game-Theoretic Issues in Blockchains</h2>
 
-      </div>
-      
-  </div>
-</div>
-<!-- end article -->
-		
-			
-<!-- begin article -->
-<div class="article">
-  <div class="container">
+<p>Researchers have discovered various strategies that the nodes participating in a
+blockchain can adopt to gain more reward than the default strategy. For example,
+selfish mining is a well-known attack on Bitcoin’s incentive mechanism that
+allows a strategic miner to reap more than his fair share of block rewards by
+waiting to publish his blocks until he would cause the most damage to the honest
+majority <a class="citation" href="#10.1145/3212998">(Eyal &amp; Sirer, 2018)</a>. Many subsequent papers have explored both
+attacks on Bitcoin’s incentive mechanism <a class="citation" href="#10.1145/2976749.2978408">(Carlsten et al., 2016; Eyal, 2015; Judmayer et al., 2019; Liao &amp; Katz, 2017; Nayak et al., 2015; Sapirshtein et al., 2016)</a> as well as other cryptocurrencies <a class="citation" href="#a">(Grunspan &amp; Perez-Marco, 2020; Neuder et al., 2019; Niu &amp; Feng, 2019; Ritz &amp; Zugenmaier, 2018)</a>.
+Often, these attacks not only negatively impact the revenue of other miners but
+also the security of the blockchain against byzantine adversaries.</p>
 
-    <div class="article__wrapper">
+<p>In a blockchain protocol, each node must be incentivized to act honestly. To
+ensure that not only the network of nodes as a whole is provided enough
+incentives, but each node in the network should also be provided the correct
+incentive. Hence, the blockchain protocol must be fair to the participants.
+Research has shown that many widely used blockchain protocols are not fair to
+miners. In our recent work in AAMAS’21, we established that fairness measures
+would deteriorate even further in the future as we try to scale the blockchain
+protocols <a class="citation" href="#aamas21">(Jain et al., 2021)</a>.</p>
 
-        
-          <a href="/2019/10/10/bitcoin-and-red-balloons/" class="article__image" style="background-image: url(/images/14.jpg)">
-          </a>
-        
+<h2 id="blockchain_scalability">Scalability in Blockchains</h2>
 
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-                <a href="/tag/economics" class="article__tag">economics</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/10/10/bitcoin-and-red-balloons/">Paper Review - Bitcoin and Red Balloons</a>
-          </h2>
-      
-          <p class="article__excerpt">The paper by (Babaioff et al., 2012) demonstrates that the peer-to-peer layer and the gossip
-protocol are not always incentive compatible i.e., the participants do
-not internalize su...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-10-10T15:01:35+05:30">October 10, 2019</time></span>
-            </div>
+<p>Although cryptocurrencies like Bitcoin and Ethereum are quite popular today,
+they still lag behind centralized payment systems like Visa in terms of
+transaction rates and time to finality. As of February 2021, Bitcoin’s and
+Ethereum’s network processes an average of 3-4 and 10 transactions per second
+(TPS), respectively. In contrast, Visa’s global payment system handled a
+reported 1,700 TPS <a class="citation" href="#visa_claim">(Visa Inc., n.d.)</a>. For a cryptocurrency to be adopted
+universally, it must be able to scale to process transactions at much higher
+throughput, i.e., TPS rate. Hence, blockchain protocols must be scalable to be
+suitable for widespread adoption.</p>
 
-            <a href="/2019/10/10/bitcoin-and-red-balloons/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
+<p>The Bitcoin protocol suffers from a reduction in security against byzantine
+adversaries as we try to scale the protocol (missing reference). Therefore, it would not be suitable for universal
+adoption. Towards this, many researchers have proposed blockchain protocols that
+could scale better than Bitcoin <a class="citation" href="#ohie">(Yu et al., 2020; Sompolinsky et al., 2016; Sompolinsky et al., 2018; Pass &amp; Shi, 2017; Sompolinsky &amp; Zohar, 2015; Rocket et al., 2019)</a>. However, we have still not concluded a
+perfectly scalable protocol since often these newly proposed protocols suffer
+from issues such as strategic deviations or network overheads <a class="citation" href="#ohie">(Yu et al., 2020; Li et al., 2018; Jain et al., 2021)</a>.</p>
 
-        </div>
+<p>We are actively working on designing scalable blockchain protocols. One of our
+works on this was invited for presentation in the WINE Workshop on Game Theory
+in Blockchain, in which we proposed a novel blockchain protocol <a class="citation" href="#Arora2020">(Arora et al., 2020)</a>. I am also actively working on designing new blockchain protocols that are not
+only scalable but also maintain certain fairness properties as they scale.</p>
 
-      </div>
-      
-  </div>
-</div>
-<!-- end article -->
-		
-			
-<!-- begin article -->
-<div class="article">
-  <div class="container">
+<hr>
 
-    <div class="article__wrapper">
+<h2 id="references">References</h2>
 
-        
-          <a href="/2019/10/02/simple-economics-of-blockchain/" class="article__image" style="background-image: url(/images/12.jpg)">
-          </a>
-        
+<ol class="bibliography">
+<li><span id="Jain2020">Jain, A., &amp; Gujar, S. (2020). Block Rewards, Not Transaction Fees Keep Miners Faithful In Blockchain Protocols. <i>Workshop on Game Theory in Blockchain at WINE 2020 (GTiB@WINE 2020)</i>.</span></li>
+<li><span id="10.1145/3212998">Eyal, I., &amp; Sirer, E. G. (2018). Majority is Not Enough: Bitcoin Mining is Vulnerable. <i>Commun. ACM</i>, <i>61</i>(7), 95–102. https://doi.org/10.1145/3212998</span></li>
+<li><span id="10.1145/2976749.2978408">Carlsten, M., Kalodner, H., Weinberg, S. M., &amp; Narayanan, A. (2016). On the Instability of Bitcoin Without the Block Reward. <i>Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security</i>, 154–167. https://doi.org/10.1145/2976749.2978408</span></li>
+<li><span id="10.1109/SP.2015.13">Eyal, I. (2015). The Miner’s Dilemma. <i>Proceedings of the 2015 IEEE Symposium on Security and Privacy</i>, 89–103. https://doi.org/10.1109/SP.2015.13</span></li>
+<li><span id="cryptoeprint:2019:775">Judmayer, A., Stifter, N., Zamyatin, A., Tsabary, I., Eyal, I., Gazi, P., Meiklejohn, S., &amp; Weippl, E. (2019). <i>Pay To Win: Cheap, Crowdfundable, Cross-chain Algorithmic Incentive Manipulation Attacks on PoW Cryptocurrencies</i>. Cryptology ePrint Archive, Report 2019/775.</span></li>
+<li><span id="liao2017incentivizing">Liao, K., &amp; Katz, J. (2017). Incentivizing blockchain forks via whale transactions. <i>International Conference on Financial Cryptography and Data Security</i>, 264–279.</span></li>
+<li><span id="cryptoeprint:2015:796">Nayak, K., Kumar, S., Miller, A., &amp; Shi, E. (2015). <i>Stubborn Mining: Generalizing Selfish Mining and Combining with an Eclipse Attack</i>. Cryptology ePrint Archive, Report 2015/796.</span></li>
+<li><span id="sapirshtein2016optimal">Sapirshtein, A., Sompolinsky, Y., &amp; Zohar, A. (2016). Optimal selfish mining strategies in bitcoin. <i>International Conference on Financial Cryptography and Data Security</i>, 515–532.</span></li>
+<li><span id="a">Grunspan, C., &amp; Perez-Marco, R. (2020). Selfish Mining in Ethereum. In P. Pardalos, I. Kotsireas, Y. Guo, &amp; W. Knottenbelt (Eds.), <i>Mathematical Research for Blockchain Economy</i> (pp. 65–90). Springer International Publishing.</span></li>
+<li><span id="b">Neuder, M., Moroz, D. J., Rao, R., &amp; Parkes, D. C. (2019). Selfish Behavior in the Tezos Proof-of-Stake Protocol. <i>CoRR</i>, <i>abs/1912.02954</i>. http://arxiv.org/abs/1912.02954</span></li>
+<li><span id="c">Niu, J., &amp; Feng, C. (2019). Selfish Mining in Ethereum. <i>CoRR</i>, <i>abs/1901.04620</i>. http://arxiv.org/abs/1901.04620</span></li>
+<li><span id="d">Ritz, F., &amp; Zugenmaier, A. (2018). The Impact of Uncle Rewards on Selfish Mining in Ethereum. <i>2018 IEEE European Symposium on Security and Privacy Workshops (EuroS PW)</i>, 50–57. https://doi.org/10.1109/EuroSPW.2018.00013</span></li>
+<li><span id="aamas21">Jain, A., Siddiqui, S., &amp; Gujar, S. (2021). We might walk together, but I run faster: Network Fairness and Scalability in Blockchains. <i>20th International Conference on Autonomous Agents and Multiagent Systems</i>.</span></li>
+<li><span id="visa_claim">Visa Inc. <i>VisaNet Booklet</i>.</span></li>
+<li><span id="ohie">Yu, H., Nikolic, I., Hou, R., &amp; Saxena, P. (2020). OHIE: Blockchain Scaling Made Simple. <i>2020 IEEE Symposium on Security and Privacy (SP)</i>, 112–127. https://doi.org/10.1109/SP.2020.00008</span></li>
+<li><span id="spectre">Sompolinsky, Y., Lewenberg, Y., &amp; Zohar, A. (2016). <i>SPECTRE: A Fast and Scalable Cryptocurrency Protocol</i>.</span></li>
+<li><span id="phantom">Sompolinsky, Y., Wyborski, S., &amp; Zohar, A. (2018). <i>PHANTOM and GHOSTDAG:  A Scalable Generalization of Nakamoto Consensus</i>. Cryptology ePrint Archive, Report 2018/104.</span></li>
+<li><span id="fruitchain">Pass, R., &amp; Shi, E. (2017). Fruitchains: A fair blockchain. <i>Proceedings of the ACM Symposium on Principles of Distributed Computing</i>, 315–324.</span></li>
+<li><span id="sompolinsky2015secure">Sompolinsky, Y., &amp; Zohar, A. (2015). Secure high-rate transaction processing in bitcoin. <i>International Conference on Financial Cryptography and Data Security</i>, 507–527.</span></li>
+<li><span id="avalanche">Rocket, T., Yin, M., Sekniqi, K., van Renesse, R., &amp; Sirer, E. G. (2019). Scalable and Probabilistic Leaderless BFT Consensus through Metastability. <i>CoRR</i>, <i>abs/1906.08936</i>. http://arxiv.org/abs/1906.08936</span></li>
+<li><span id="li2018scaling">Li, C., Li, P., Zhou, D., Xu, W., Long, F., &amp; Yao, A. (2018). <i>Scaling Nakamoto Consensus to Thousands of Transactions per Second</i>.</span></li>
+<li><span id="jain2021walk">Jain, A., Siddiqui, S., &amp; Gujar, S. (2021). <i>We might walk together, but I run faster: Network Fairness and Scalability in Blockchains</i>.</span></li>
+<li><span id="Arora2020">Arora, S., Jain, A., Damle, S., &amp; Gujar, S. (2020). \ ASHWAChain: A Fast, Scalable and Strategy-proof Committee-based Blockchain Protocol. <i>Workshop on Game Theory in Blockchain at WINE 2020 (GTiB@WINE 2020)</i>.</span></li>
+</ol>
 
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-                <a href="/tag/economics" class="article__tag">economics</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/10/02/simple-economics-of-blockchain/">Paper Review - Economics of Blockchain</a>
-          </h2>
-      
-          <p class="article__excerpt">Blockchain-based Distributed Ledgers (DLs) promise to transform the
-existing financial system. The idea behind such a transformation is to
-replace centralized institutions that gover...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-10-02T15:01:35+05:30">October 2, 2019</time></span>
-            </div>
-
-            <a href="/2019/10/02/simple-economics-of-blockchain/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
-
-        </div>
-
-      </div>
-      
-  </div>
-</div>
-<!-- end article -->
-		
-			
-<!-- begin article -->
-<div class="article">
-  <div class="container">
-
-    <div class="article__wrapper">
-
-        
-          <a href="/2019/09/05/bitcoin-backbone-protocol/" class="article__image" style="background-image: url(/images/07.png)">
-          </a>
-        
-
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/09/05/bitcoin-backbone-protocol/">Paper Review - Bitcoin Backbone Protocol</a>
-          </h2>
-      
-          <p class="article__excerpt">The paper by (Garay et al., 2015) analyzes the consensus mechanism used in Bitcoin dubbed as the
-“Bitcoin Backbone Protocol”. The paper assumes a “flat-model” and proves two of the m...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-09-05T15:01:35+05:30">September 5, 2019</time></span>
-            </div>
-
-            <a href="/2019/09/05/bitcoin-backbone-protocol/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
-
-        </div>
-
-      </div>
-      
-  </div>
-</div>
-<!-- end article -->
-		
-			
-<!-- begin article -->
-<div class="article">
-  <div class="container">
-
-    <div class="article__wrapper">
-
-        
-          <a href="/2019/08/05/research-perspective-on-blockchain/" class="article__image" style="background-image: url(/images/06.jpg)">
-          </a>
-        
-
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/08/05/research-perspective-on-blockchain/">Paper Review - Research Perspectives for Cryptocurrencies</a>
-          </h2>
-      
-          <p class="article__excerpt">The article titled “SoK: Research Perspectives and Challenges for Bitcoin and
-Cryptocurrencies” (Bonneau et al., 2015) provides a comprehensive overview of the current state of
-resea...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-08-05T15:01:35+05:30">August 5, 2019</time></span>
-            </div>
-
-            <a href="/2019/08/05/research-perspective-on-blockchain/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
-
-        </div>
-
-      </div>
-      
-  </div>
-</div>
-<!-- end article -->
-		
-			
-<!-- begin article -->
-<div class="article">
-  <div class="container">
-
-    <div class="article__wrapper">
-
-        
-          <a href="/2019/07/07/flash-boys/" class="article__image" style="background-image: url(/images/11.jpg)">
-          </a>
-        
-
-        <div class="article__content ">
-          <div class="article-tags">
-          
-            <div class="article-tags__box">
-              
-                <a href="/tag/paper-review" class="article__tag">paper-review</a>
-              
-                <a href="/tag/blockchain" class="article__tag">blockchain</a>
-              
-                <a href="/tag/research" class="article__tag">research</a>
-              
-                <a href="/tag/economics" class="article__tag">economics</a>
-              
-            </div>
-          
-          </div>
-      
-          <h2 class="article__title">
-            <a href="/2019/07/07/flash-boys/">Paper Review - Flash Boys 2.0</a>
-          </h2>
-      
-          <p class="article__excerpt">I had the pleasure of attending a talk by Prof. Ari
-Juels at EPFL’s IC Research Day
-(2019) on Frontrunning
-in Decentralised Exchanges (DEXes). Interested readers can watch the talk
-h...</p>
-          
-          <div class="article__footer">
-            <div class="article__meta">
-              <span class="article__date"><time datetime="2019-07-07T00:00:35+05:30">July 7, 2019</time></span>
-            </div>
-
-            <a href="/2019/07/07/flash-boys/" class="read-more">Keep Reading <i class="ion ion-ios-arrow-forward"></i></a>
-          </div>
-
-        </div>
-
-      </div>
-      
-  </div>
-</div>
-<!-- end article -->
-		
-	
+			</div>
+		</article>
+		<!-- end page -->
 	</div>
 </div>
-<nav class="pagination">
-  <div class="container">
-    <div class="pagination__list">
-
-      
-        <span class="disabled">Prev Posts</span>
-      
-
-      <div class="counter-box">
-        
-          <span class="active-link">1</span>
-        
-
-
-        
-      </div>
-
-      
-        <span class="disabled">Next Posts</span>
-      
-
-
-    </div>
-  </div>
-</nav>
-
   </main>
   <!-- end content -->
 
